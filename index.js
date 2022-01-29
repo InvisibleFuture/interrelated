@@ -9,6 +9,7 @@ export default class interrelated {
     let channel = this.channels.get(fid) || new Map()
     if (!channel.size) this.channels.set(fid, channel)
     channel.set(uid, true)
+
     let user = this.users.get(uid) || new Map()
     if (!user.size) this.users.set(uid, user)
     user.set(fid, true)
@@ -18,8 +19,11 @@ export default class interrelated {
   delete(fid, uid) {
     let channel = this.channels.get(fid)
     if (channel && channel.size) channel.delete(uid)
+    if (channel && channel.size === 0) this.channels.delete(fid)
+
     let user = this.users.get(uid)
     if (user && user.size) user.delete(fid)
+    if (user && user.size === 0) this.users.delete(uid)
   }
 
   // 读取类型 A 关联的 B
@@ -40,6 +44,26 @@ export default class interrelated {
         callback(key)
       })
     }
+  }
+
+  // 移除 A 中所有指定数据
+  adelete(uid) {
+    let user = this.users.get(uid)
+    if (user && user.size) user.forEach((value, key) => {
+      let channel = this.channels.get(key)
+      if (channel && channel.size) channel.delete(uid)
+    })
+    this.users.delete(uid)
+  }
+
+  // 移除 B 中所有指定数据
+  bdelete(fid) {
+    let channel = this.channels.get(fid)
+    if (channel && channel.size) channel.forEach((value, key) => {
+      let user = this.users.get(key)
+      if (user && user.size) user.delete(fid)
+    })
+    this.channels.delete(fid)
   }
 
   // 读取所有 a
