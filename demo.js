@@ -1,9 +1,3 @@
-# interrelated
-js 数据双向关联
-
-
-```javascript
-
 import fmhub from './index.js'
 
 const fm = new fmhub()
@@ -31,5 +25,3 @@ fm.btoa("0002", (data) => {
 // 0004
 // 频道一号
 //
-
-```

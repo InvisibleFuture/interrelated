@@ -1,0 +1,20 @@
+{
+  "name": "interrelated",
+  "version": "1.0.0",
+  "description": "js 数据双向关联",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "demo.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InvisibleFuture/interrelated.git"
+  },
+  "author": "satori.love",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/InvisibleFuture/interrelated/issues"
+  },
+  "homepage": "https://github.com/InvisibleFuture/interrelated#readme"
+}
