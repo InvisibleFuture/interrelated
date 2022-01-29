@@ -1,6 +1,6 @@
 {
   "name": "interrelated",
-  "version": "1.0.0",
+  "version": "2.0.0-0",
   "description": "js 数据双向关联",
   "main": "index.js",
   "type": "module",
